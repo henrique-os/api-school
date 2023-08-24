@@ -1,7 +1,7 @@
 const logInUser = require("../services/UserServices/logInUser");
 
 class LoginController {
-  async assingToken(req, res) {
+  async assignToken(req, res) {
     try {
       const email = req.body.email;
       const password = req.body.password;

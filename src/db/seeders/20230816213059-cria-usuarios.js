@@ -16,8 +16,8 @@ module.exports = {
         {
           id: v4(),
           name: "John Doe",
-          email: "carlos1@gmail.com",
-          password_hash: await hash("123456", 8),
+          email: "teste@teste.com",
+          password_hash: await hash("senhadoteste", 8),
           createdAt: "2004-10-19 10:23:54+02",
           updatedAt: "2004-10-19 10:23:54+02",
         },

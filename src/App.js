@@ -1,9 +1,9 @@
-require("./db/connection");
 const express = require("express");
 const studentRt = require("./routes/studentRoutes");
 const userRt = require("./routes/userRoutes");
 const loginUserRoutes = require("./routes/loginUserRoutes");
 const uploadsRoutes = require("./routes/uploadsRoutes");
+require("./db/connection");
 const { resolve } = require("path");
 
 class App {
@@ -22,9 +22,7 @@ class App {
   middlewares() {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
-    this.app.use(
-      express.static(resolve(__dirname, "..", "uploads"))
-    );
+    this.app.use(express.static(resolve(__dirname, "..", "uploads")));
   }
 }
 

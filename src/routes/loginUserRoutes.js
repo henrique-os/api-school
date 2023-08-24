@@ -3,6 +3,6 @@ const LoginController = require("../controllers/LoginController");
 
 const r = Router();
 
-r.post("/sign-in", LoginController.assingToken);
+r.post("/sign-in", LoginController.assignToken);
 
 module.exports = r;

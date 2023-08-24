@@ -7,8 +7,6 @@ const updatePassword = require("../services/UserServices/updatePassword");
 
 class UserController {
   async getUser(req, res) {
-    console.log(req.headers.userId);
-    console.log(req.headers.userEmail);
     try {
       const identifierUser = req.params.id;
       if (!identifierUser) {
@@ -31,12 +29,11 @@ class UserController {
 
   async postUser(req, res) {
     try {
-      const { name, email, password, unidade } = req.body;
+      const { name, email, password } = req.body;
       const newUser = await createUser({
         name,
         email,
         password,
-        unidade,
       });
 
       if (!newUser) {
