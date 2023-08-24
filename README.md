@@ -1,2 +1,0 @@
-# api-school
- é uma api, que futuramente eu vou consumi-la com react não sei bem como mas é pra isso que eu estou fazendo. acho que vai cospir um json e eu pego esse json e processo com react. basico. é total livre entãao se tu quiser pegar pra estudar alguma coisa, fique a vontade, e vou começar com async e await e depois tentar olhar formas melhores de fazer programação assincrona. por enquanto este é o jeito que eu sei então fica nessa pegada.
