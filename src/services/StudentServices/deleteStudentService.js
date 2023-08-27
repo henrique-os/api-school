@@ -1,7 +1,7 @@
 const prisma = require("../../persistence/db/prisma");
 
 module.exports = async (id) => {
-  const deactivate = await prisma.student
+  const deactivate = prisma.student
     .update({
       where: { id },
       data: { isActive: false },

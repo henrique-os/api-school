@@ -1,27 +1,28 @@
 const createUser = require("../services/UserServices/createUserService");
 const deleteUser = require("../services/UserServices/deleteUserService");
-const findUser = require("../services/UserServices/findUserService");
+const findUserService = require("../services/UserServices/findUserService");
+const logInUserService = require("../services/UserServices/logInUserService");
 const updateUserService = require("../services/UserServices/updateUserService");
 
 class UserController {
   async getUser(req, res) {
     try {
       const identifierUser = req.params.id;
+
       if (!identifierUser) {
         return res.status(400).json({ err: `${identifierUser}` });
       }
-      const UserAchado = await findUser(identifierUser);
-      if (!UserAchado) {
-        return res.status(200).json(null);
+
+      const tryFindUser = await findUserService(identifierUser);
+
+      if (tryFindUser.err) {
+        return res.status(tryFindUser.sCode).json(tryFindUser.err);
       }
-      return res.status(200).json({
-        name: UserAchado.dataValues.name,
-        email: UserAchado.dataValues.email,
-        createdAt: UserAchado.dataValues.createdAt,
-      });
+
+      return res.status(tryFindUser.sCode).json(tryFindUser);
     } catch (err) {
       console.log({ err: `${err}` });
-      return res.json({ err: `Erro ao buscar o User, tente mais tarde!` });
+      return res.json({ err: `Erro ao busca-lo, tente mais tarde!` });
     }
   }
 
@@ -61,14 +62,43 @@ class UserController {
 
   async editProfile(req, res) {
     try {
-      const element = String(req.body.element);
+      const identifier = req.params.id;
+
       const { email, password, name } = req.body;
 
-      const updatedUser = await updateUserService({ email, password, name });
+      const updatedUser = await updateUserService(identifier, {
+        email,
+        password,
+        name,
+      });
 
       return res.status(updatedUser.statusCode).json(updatedUser.data);
     } catch (err) {
       res.status(400).json(null);
+    }
+  }
+
+  async userLogin(req, res) {
+    try {
+      const email = req.body.email;
+      const password = req.body.password;
+
+      if (!email || email == undefined) {
+        return res.status(401).json({
+          err: `O campo "Email", precisa ser preenchido! `,
+        });
+      }
+      if (!password || password == undefined) {
+        return res.status(401).json({
+          err: `O campo "Senha", precisa ser preenchido! `,
+        });
+      }
+      const register = await logInUserService(email, password);
+      return res
+        .status(register.sCode)
+        .json({ msg: register.msg, token: register.token });
+    } catch (err) {
+      return res.status(400).json({ err: `Email não encontrado!` });
     }
   }
 }

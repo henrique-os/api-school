@@ -1,10 +1,8 @@
 const express = require("express");
 const studentRt = require("./routes/studentRoutes");
 const userRt = require("./routes/userRoutes");
-const loginUserRoutes = require("./routes/loginUserRoutes");
 const uploadsRoutes = require("./routes/uploadsRoutes");
 const { resolve } = require("path");
-const errorController = require("./middlewares/errorController");
 
 class App {
   constructor() {
@@ -16,7 +14,6 @@ class App {
   routes() {
     this.app.use("/student", studentRt);
     this.app.use("/user", userRt);
-    this.app.use("/", loginUserRoutes);
     this.app.use("/uploads", uploadsRoutes);
   }
   middlewares() {

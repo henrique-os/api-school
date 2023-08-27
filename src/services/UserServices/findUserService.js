@@ -1,7 +1,7 @@
 const prisma = require("../../persistence/db/prisma");
 
-module.exports = async (identifier) => {
-  return prisma.student
+module.exports = async (id) => {
+  const findUserService = prisma.user
     .findUnique({
       where: {
         id,
@@ -12,11 +12,21 @@ module.exports = async (identifier) => {
         isActive: true,
       },
     })
+    .then((register) => {
+      return {
+        register,
+        err: null,
+        sCode: 200,
+      };
+    })
     .catch((err) => {
       console.log(err);
       return {
-        err,
         register: null,
+        err,
+        sCode: 400,
       };
     });
+
+  return findUserService;
 };

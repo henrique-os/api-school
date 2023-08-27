@@ -1,13 +1,18 @@
+const { hash } = require("bcryptjs");
 const prisma = require("../../persistence/db/prisma");
 
-module.exports = async (
-  id,
-  { email, firstname, lastname, age, height, weight }
-) => {
+module.exports = async (id, { email, name, password, age, height, weight }) => {
   const register = await prisma.student
     .update({
       where: { id },
-      data: { email, firstname, lastname, age, height, weight },
+      data: {
+        email,
+        name,
+        password: await hash(password, 8),
+        age,
+        height,
+        weight,
+      },
     })
     .then((user) => {
       return {

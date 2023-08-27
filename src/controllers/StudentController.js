@@ -1,6 +1,7 @@
 const createStudentService = require("../services/StudentServices/createStudentService");
 const deleteStudentService = require("../services/StudentServices/deleteStudentService");
 const findStudent = require("../services/StudentServices/findStudent");
+const logInStudentService = require("../services/StudentServices/logInStudentService");
 const updateServiceStudent = require("../services/StudentServices/updateServiceStudent");
 
 class StudentController {
@@ -39,16 +40,16 @@ class StudentController {
     try {
       const id = req.params.id;
       const email = req.body.email;
-      const firstname = req.body.firstname;
-      const lastname = req.body.lastname;
+      const name = req.body.name;
+      const password = req.body.password;
       const age = req.body.age;
       const height = req.body.height;
       const weight = req.body.weight;
 
       const updated = await updateServiceStudent(id, {
         email,
-        firstname,
-        lastname,
+        name,
+        password,
         age,
         height,
         weight,
@@ -78,6 +79,30 @@ class StudentController {
     } catch (err) {
       console.log(err);
       return res.status(400).json({ err: "Tente novamente mais tarde!" });
+    }
+  }
+
+  async studentLogin(req, res) {
+    try {
+      const email = req.body.email;
+      const password = req.body.password;
+
+      if (!email || email == undefined) {
+        return res.status(401).json({
+          err: `O campo "Email", precisa ser preenchido! `,
+        });
+      }
+      if (!password || password == undefined) {
+        return res.status(401).json({
+          err: `O campo "Senha", precisa ser preenchido! `,
+        });
+      }
+      const register = await logInStudentService(email, password);
+      return res
+        .status(register.sCode)
+        .json({ msg: register.msg, token: register.token });
+    } catch (err) {
+      return res.status(400).json({ err: `Email não encontrado!` });
     }
   }
 }

@@ -25,7 +25,13 @@ class UploadsController {
           studentId,
         });
 
-        return res.status(200).json(newImage);
+        if (!newImage.err) {
+          return res.status(newImage.sCode).json(newImage.register);
+        }
+        console.log(newImage.err);
+        return res.status(newImage.sCode).json({
+          err: `Tente novamente mais tarde!`,
+        });
       } catch (err) {
         console.log(err);
         return res.status(400).json({ err: "Tente novamente mais tarde!" });

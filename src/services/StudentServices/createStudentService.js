@@ -14,6 +14,10 @@ module.exports = async ({ name, email, age, height, weight, password }) => {
         weight,
         isActive: true,
       },
+      select: {
+        name: true,
+        email: true,
+      },
     });
     return {
       newRegister,

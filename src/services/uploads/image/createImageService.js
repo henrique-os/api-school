@@ -4,17 +4,24 @@ const prisma = require("../../../persistence/db/prisma");
 module.exports = async ({ originalname, filename, studentId }) => {
   const image = prisma.image
     .create({
-      id: v4(),
       originalname,
       filename,
       studentId,
     })
     .then((register) => {
-      return register;
+      return {
+        err: null,
+        register,
+        sCode: 200,
+      };
     })
     .catch((err) => {
       console.log(err);
-      return `Erro`;
+      return {
+        err,
+        register: null,
+        sCode: 400,
+      };
     });
   return image;
 };

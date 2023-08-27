@@ -1,21 +1,23 @@
+const { hash } = require("bcryptjs");
 const prisma = require("../../persistence/db/prisma");
 
-module.exports = async ({ email, newEmail }) => {
+module.exports = async (id, { name, email, password }) => {
   const register = prisma.user
-    .findUnique({
-      where: { email },
+    .update({
+      where: { id },
+      data: {},
     })
     .then((user) => {
-      user.update({ email: newEmail });
+      user.update({ name, email, password: hash(password, 8) });
       return {
         statusCode: 201,
-        msg: `Email alterado com sucesso!`,
+        msg: `Sucess!`,
       };
     })
     .catch((e) => {
       return {
         statusCode: 400,
-        msg: `Este email não está correto! verifique por favor!`,
+        msg: `verifique, e tente novamente mais tarde!`,
       };
     });
 
