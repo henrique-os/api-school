@@ -12,9 +12,12 @@ class App {
   }
 
   routes() {
-    this.app.use("/student", studentRt);
-    this.app.use("/user", userRt);
-    this.app.use("/uploads", uploadsRoutes);
+    this.app.use("/", (req, res) => {
+      return res.send("API Escola;");
+    });
+    // this.app.use("/student", studentRt);
+    // this.app.use("/user", userRt);
+    // this.app.use("/uploads", uploadsRoutes);
   }
   middlewares() {
     this.app.use(express.urlencoded({ extended: true }));
