@@ -35,7 +35,7 @@ class StudentController {
   }
   async createStudent(req, res) {
     try {
-      const { name, password, email, age, height, weight } = req.body;
+      const { name, password, email, age, height, weight } = req.student;
       const newRegister = await createStudentService({
         name,
         password,
