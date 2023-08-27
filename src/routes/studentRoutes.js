@@ -5,6 +5,7 @@ const r = Router();
 
 r.post("/login", StudentController.studentLogin);
 r.get("/:id", StudentController.getStudent);
+r.get("/", StudentController.getAllStudent);
 r.post("/new", StudentController.createStudent);
 r.delete("/:id", StudentController.deactivateStudent);
 r.put("/:id", StudentController.updateStudent);

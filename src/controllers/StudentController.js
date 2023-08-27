@@ -1,10 +1,24 @@
 const createStudentService = require("../services/StudentServices/createStudentService");
 const deleteStudentService = require("../services/StudentServices/deleteStudentService");
+const findAllStudentService = require("../services/StudentServices/findAllStudentService");
 const findStudent = require("../services/StudentServices/findStudent");
 const logInStudentService = require("../services/StudentServices/logInStudentService");
 const updateServiceStudent = require("../services/StudentServices/updateServiceStudent");
 
 class StudentController {
+  async getAllStudent(req, res) {
+    try {
+      const findRegister = await findAllStudentService();
+      if (!findRegister) {
+        return res.status(400).json({ err: "Não encontrado!", findRegister });
+      }
+      return res.status(200).json(findRegister);
+    } catch (err) {
+      console.log(err);
+
+      return res.status(200).json({ err });
+    }
+  }
   async getStudent(req, res) {
     try {
       const id = req.params.id;
@@ -54,7 +68,7 @@ class StudentController {
         height,
         weight,
       });
-      return res.status(updated.statusCode).json(updated.msg);
+      return res.status(updated.statusCode).json(updated);
     } catch (err) {
       console.log(err);
       return res.status(400).json(err);
