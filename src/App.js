@@ -15,6 +15,11 @@ class App {
     this.app.use("/student", studentRt);
     this.app.use("/user", userRt);
     this.app.use("/uploads", uploadsRoutes);
+    this.app.use("/amanda", (req, res) => {
+      return res.send(
+        "Quem é minha branquela rabuda e gostosa ? exatamente vc dona Amanda!"
+      );
+    });
   }
   middlewares() {
     this.app.use(express.urlencoded({ extended: true }));
