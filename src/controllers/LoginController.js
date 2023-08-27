@@ -1,7 +1,6 @@
-const logInUser = require("../services/UserServices/logInUser");
-
+const logInUserService = require("../services/UserServices/logInUserService");
 class LoginController {
-  async assignToken(req, res) {
+  async userLogin(req, res) {
     try {
       const email = req.body.email;
       const password = req.body.password;
@@ -16,9 +15,10 @@ class LoginController {
           err: `O campo "Senha", precisa ser preenchido! `,
         });
       }
-      const register = await logInUser(email, password);
-      console.log(register);
-      return res.status(200).json({ register });
+      const register = await logInUserService(email, password);
+      return res
+        .status(register.sCode)
+        .json({ msg: register.msg, token: register.token });
     } catch (err) {
       return res.status(400).json({ err: `Email não encontrado!` });
     }

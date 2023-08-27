@@ -2,17 +2,13 @@ const prisma = require("../../persistence/db/prisma");
 
 const { hash } = require("bcryptjs");
 
-module.exports = async ({ name, email, age, height, weight, password }) => {
+module.exports = async ({ name, email, password }) => {
   try {
-    const newRegister = await prisma.student.create({
+    const newRegister = await prisma.user.create({
       data: {
         name,
         email,
         password: await hash(password, 8),
-        age,
-        height,
-        weight,
-        isActive: true,
       },
     });
     return {

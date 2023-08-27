@@ -1,12 +1,15 @@
-const Student = require("../../models/Student");
+const prisma = require("../../persistence/db/prisma");
 
 module.exports = async (
   id,
   { email, firstname, lastname, age, height, weight }
 ) => {
-  const register = await Student.findByPk(id)
+  const register = await prisma.student
+    .update({
+      where: { id },
+      data: { email, firstname, lastname, age, height, weight },
+    })
     .then((user) => {
-      user.update({ email, firstname, lastname, age, height, weight });
       return {
         user,
         statusCode: 200,
@@ -14,6 +17,7 @@ module.exports = async (
       };
     })
     .catch((e) => {
+      console.log(e);
       return {
         statusCode: 400,
         msg: `Este email não está correto! verifique por favor!`,

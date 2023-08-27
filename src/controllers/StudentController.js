@@ -1,8 +1,7 @@
 const createStudentService = require("../services/StudentServices/createStudentService");
 const deleteStudentService = require("../services/StudentServices/deleteStudentService");
 const findStudent = require("../services/StudentServices/findStudent");
-const updateDataValuesStudent = require("../services/StudentServices/updateDataValuesStudent");
-const updateEmail = require("../services/StudentServices/updateEmail");
+const updateServiceStudent = require("../services/StudentServices/updateServiceStudent");
 
 class StudentController {
   async getStudent(req, res) {
@@ -21,10 +20,10 @@ class StudentController {
   }
   async createStudent(req, res) {
     try {
-      const { firstname, lastname, email, age, height, weight } = req.body;
+      const { name, password, email, age, height, weight } = req.body;
       const newRegister = await createStudentService({
-        firstname,
-        lastname,
+        name,
+        password,
         email,
         age,
         height,
@@ -46,7 +45,7 @@ class StudentController {
       const height = req.body.height;
       const weight = req.body.weight;
 
-      const updated = await updateDataValuesStudent(id, {
+      const updated = await updateServiceStudent(id, {
         email,
         firstname,
         lastname,
@@ -60,13 +59,25 @@ class StudentController {
       return res.status(400).json(err);
     }
   }
-  async deleteStudent(req, res) {
+  async deactivateStudent(req, res) {
+    // Isto não deleta o registro do banco de dados. só altera uma propriedade, mas ele fica salvo ainda em db!
     try {
       const id = req.params.id;
-      const registerDeleted = await deleteStudentService(id);
-      return res.json({ registerDeleted });
+      const deactivate = await deleteStudentService(id);
+      if (deactivate.err) {
+        return res
+          .status(deactivate.sCode)
+          .json({ err: "Tente novamente mais tarde!" });
+      } else {
+        return res.json({
+          name: deactivate.student.name,
+          email: deactivate.student.email,
+          isActive: deactivate.student.isActive,
+        });
+      }
     } catch (err) {
-      return res.status(400).json(err);
+      console.log(err);
+      return res.status(400).json({ err: "Tente novamente mais tarde!" });
     }
   }
 }

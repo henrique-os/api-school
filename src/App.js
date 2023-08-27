@@ -3,8 +3,8 @@ const studentRt = require("./routes/studentRoutes");
 const userRt = require("./routes/userRoutes");
 const loginUserRoutes = require("./routes/loginUserRoutes");
 const uploadsRoutes = require("./routes/uploadsRoutes");
-require("./db/connection");
 const { resolve } = require("path");
+const errorController = require("./middlewares/errorController");
 
 class App {
   constructor() {

@@ -4,6 +4,6 @@ const loginRequired = require("../middlewares/loginRequired");
 
 const r = Router();
 
-r.post("/", loginRequired, UploadsController.receiveImage);
+r.post("/", UploadsController.receiveImage);
 
 module.exports = r;

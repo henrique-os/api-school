@@ -1,6 +1,6 @@
 const prisma = require("../../persistence/db/prisma");
 
-module.exports = async (id) => {
+module.exports = async (identifier) => {
   return prisma.student
     .findUnique({
       where: {
@@ -9,8 +9,6 @@ module.exports = async (id) => {
       select: {
         name: true,
         email: true,
-        age: true,
-        height: true,
         isActive: true,
       },
     })

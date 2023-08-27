@@ -1,9 +1,7 @@
-const createUser = require("../services/UserServices/createUser");
-const deleteUser = require("../services/UserServices/deleteUser");
-const findUser = require("../services/UserServices/findUser");
-const updateEmail = require("../services/UserServices/updateEmail");
-const updateName = require("../services/UserServices/updateName");
-const updatePassword = require("../services/UserServices/updatePassword");
+const createUser = require("../services/UserServices/createUserService");
+const deleteUser = require("../services/UserServices/deleteUserService");
+const findUser = require("../services/UserServices/findUserService");
+const updateUserService = require("../services/UserServices/updateUserService");
 
 class UserController {
   async getUser(req, res) {
@@ -63,33 +61,12 @@ class UserController {
 
   async editProfile(req, res) {
     try {
-      const parametro = Number(req.params.feature);
       const element = String(req.body.element);
-      const email = req.headers.userEmail;
-      console.log(email);
+      const { email, password, name } = req.body;
 
-      const editEmail = async (element) => {
-        const emailChange = await updateEmail({ email, newEmail: element });
+      const updatedUser = await updateUserService({ email, password, name });
 
-        return res.status(emailChange.statusCode).json(emailChange.msg);
-      };
-      const editPassword = async (element) => {
-        const changePassword = await updatePassword({
-          newPassword: element,
-          email,
-        });
-
-        return res.status(changePassword.statusCode).json(changePassword.msg);
-      };
-      const editName = async (element) => {
-        const changeName = await updateName({ newName: element, email });
-        return res.status(changeName.statusCode).json(changeName.msg);
-      };
-      const features = [editEmail, editPassword, editName];
-
-      await features[parametro](element);
-
-      return res.status(200).json();
+      return res.status(updatedUser.statusCode).json(updatedUser.data);
     } catch (err) {
       res.status(400).json(null);
     }

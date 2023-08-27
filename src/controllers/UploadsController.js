@@ -17,6 +17,7 @@ class UploadsController {
       try {
         const { originalname, filename } = req.file;
         const studentId = req.body.studentId;
+        console.log(`${studentId} studentId`);
 
         const newImage = await createImageService({
           originalname,

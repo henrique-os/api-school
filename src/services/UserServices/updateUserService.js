@@ -1,9 +1,10 @@
-const User = require("../../models/User");
+const prisma = require("../../persistence/db/prisma");
 
 module.exports = async ({ email, newEmail }) => {
-  const register = await User.findOne({
-    where: { email },
-  })
+  const register = prisma.user
+    .findUnique({
+      where: { email },
+    })
     .then((user) => {
       user.update({ email: newEmail });
       return {
@@ -23,4 +24,3 @@ module.exports = async ({ email, newEmail }) => {
     msg: register.msg,
   };
 };
-
