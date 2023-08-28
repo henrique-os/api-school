@@ -18,14 +18,15 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   isActive  Boolean  @default(true)
+  isAdmin   Boolean  @default(false)
 
   images Image[]
 }
 
 model Student {
-  id       String @id @default(cuid())
+  id       String  @id @default(cuid())
   name     String
-  email    String @unique
+  email    String  @unique
   password String
   age      Int
   height   Float

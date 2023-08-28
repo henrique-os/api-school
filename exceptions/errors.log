@@ -1,0 +1,736 @@
+2023-08-28T12:24:51.022Z: TypeError: Cannot destructure property 'email' of 'req.isAdmin' as it is undefined.
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:7:15)
+    at Layer.handle [as handle_request] (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\router\route.js:144:13)
+    at module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\middlewares\validAdmin.js:18:12)
+    at Layer.handle [as handle_request] (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\router\index.js:346:12)
+2023-08-28T12:25:47.059Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientValidationError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password }) => {
+  6   return await prisma.user
+→ 7     .create({
+          data: {
+            email: "riknfsmw12365test@gmail.com",
+            password: "$2a$08$.2uQkNJU0Vc6w3giLTispu6GBN70kOwBp.PzgKSY/pIrCPpcR2dWS",
+            isAdmin: true,
+        +   name: String
+          },
+          select: {
+            name: true,
+            email: true
+          }
+        })
+
+Argument `name` is missing.
+    at xn (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:116:5852)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6429)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  clientVersion: '5.2.0'
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:26:15.472Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientValidationError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password }) => {
+  6   return await prisma.user
+→ 7     .create({
+          data: {
+            email: "riknfsmw12365test@gmail.com",
+            password: "$2a$08$CiSVvA8sA7TpDuDEl1qnLOEVwRbcZn3CkC/iZSQqoyN.hsqI3TJUa",
+            isAdmin: true,
+        +   name: String
+          },
+          select: {
+            name: true,
+            email: true
+          }
+        })
+
+Argument `name` is missing.
+    at xn (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:116:5852)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6429)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  clientVersion: '5.2.0'
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:26:57.884Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientValidationError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password }) => {
+  6   return await prisma.user
+→ 7     .create({
+          data: {
+            email: "riknfsmw12365test@gmail.com",
+            password: "$2a$08$dx0KKQMv4IK55tR4vPvF1OTyEfpg5O.s3g0FZuADJVpdBrDSpaJsm",
+            isAdmin: true,
+        +   name: String
+          },
+          select: {
+            name: true,
+            email: true
+          }
+        })
+
+Argument `name` is missing.
+    at xn (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:116:5852)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6429)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  clientVersion: '5.2.0'
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:27:29.132Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientValidationError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password }) => {
+  6   return await prisma.user
+→ 7     .create({
+          data: {
+            email: "riknfsmw12365test@gmail.com",
+            password: "$2a$08$vkIOywkTZuPZUbUPzTSc8.dPk5fAtiCB34yUgSKJzgW5pnNgqOm2a",
+            isAdmin: true,
+        +   name: String
+          },
+          select: {
+            name: true,
+            email: true
+          }
+        })
+
+Argument `name` is missing.
+    at xn (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:116:5852)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6429)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  clientVersion: '5.2.0'
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:28:37.528Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientValidationError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password }) => {
+  6   return await prisma.user
+→ 7     .create({
+          data: {
+            email: "riknfsmw12365test@gmail.com",
+            password: "$2a$08$FQmui8veVBI9jZIlMuuz/.XQy5jCc55bRrtPzYAX33wbEotntX0IG",
+            isAdmin: true,
+        +   name: String
+          },
+          select: {
+            name: true,
+            email: true
+          }
+        })
+
+Argument `name` is missing.
+    at xn (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:116:5852)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6429)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  clientVersion: '5.2.0'
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:29:39.066Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientValidationError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password }) => {
+  6   return await prisma.user
+→ 7     .create({
+          data: {
+            email: "riknfsmw12365test@gmail.com",
+            password: "$2a$08$oA.QO8OV63yuaijAa/pikOFY3paERLveBFgh3TeRcPKz6mlHljvtK",
+            isAdmin: true,
+        +   name: String
+          },
+          select: {
+            name: true,
+            email: true
+          }
+        })
+
+Argument `name` is missing.
+    at xn (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:116:5852)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6429)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:9:22) {
+  clientVersion: '5.2.0'
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:11:39)
+2023-08-28T12:30:13.229Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientValidationError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password }) => {
+  6   return await prisma.user
+→ 7     .create({
+          data: {
+            email: "nfsmw@gmail.com",
+            password: "$2a$08$MAMzKN8MqkS8mlgmF5qbyeSAQH0ujq0xyCHT2JacqpEv0YBfzYeLG",
+            isAdmin: true,
+        +   name: String
+          },
+          select: {
+            name: true,
+            email: true
+          }
+        })
+
+Argument `name` is missing.
+    at xn (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:116:5852)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6429)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  clientVersion: '5.2.0'
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:05.449Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:12.306Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:12.824Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:13.304Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:13.850Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:13.853Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:14.328Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:15.063Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:15.526Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:15.999Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:16.491Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:16.945Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:17.603Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:18.495Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:19.032Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:20.256Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)
+2023-08-28T12:32:21.541Z: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: PrismaClientKnownRequestError: 
+Invalid `.create()` invocation in
+C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:7:6
+
+  4 
+  5 module.exports = async ({ email, password, name }) => {
+  6   return await prisma.user
+→ 7     .create(
+Unique constraint failed on the fields: (`email`)
+    at vn.handleRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6730)
+    at vn.handleAndLogRequestError (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:6119)
+    at vn.request (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:123:5839)
+    at async l (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\@prisma\client\runtime\library.js:128:9763)
+    at async module.exports (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\services\AdminServices\createAdmin.js:6:10)
+    at async store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:8:22) {
+  code: 'P2002',
+  clientVersion: '5.2.0',
+  meta: [Object]
+}
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.writeHead (node:_http_server:347:11)
+    at ServerResponse._implicitHeader (node:_http_server:338:8)
+    at write_ (node:_http_outgoing:915:9)
+    at ServerResponse.end (node:_http_outgoing:1026:5)
+    at ServerResponse.send (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:232:10)
+    at ServerResponse.json (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\node_modules\express\lib\response.js:278:15)
+    at store (C:\Users\meupc\OneDrive\Documentos\GitHub\api-school\src\controllers\AdminController.js:10:39)

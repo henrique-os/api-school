@@ -1,2 +1,9 @@
 node_modules
 .env
+tokenSecret.js
+secrets.js
+
+exceptions/errors.log
+exceptions\errors.log
+exceptions/errors.log
+*.log

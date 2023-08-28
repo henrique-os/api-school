@@ -2,17 +2,18 @@ require("dotenv").config();
 const { hash } = require("bcryptjs");
 const prisma = require("../../persistence/db/prisma");
 
-module.exports = async () => {
-  console.log({
-    name: process.env.ADMINUSERNAME,
-    email: process.env.ADMINEMAIL,
-  });
+module.exports = async ({ email, password, name }) => {
   return await prisma.user
     .create({
       data: {
-        name: process.env.ADMINUSERNAME,
-        email: process.env.ADMINEMAIL,
-        password: await hash(process.env.ADMINPASSWORD, 8),
+        name,
+        email,
+        password: await hash(password, 8),
+        isAdmin: true,
+      },
+      select: {
+        name: true,
+        email: true,
       },
     })
     .then((result) => {
