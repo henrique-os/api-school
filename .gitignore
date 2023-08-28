@@ -7,3 +7,5 @@ exceptions/errors.log
 exceptions\errors.log
 exceptions/errors.log
 *.log
+
+**/*.log
